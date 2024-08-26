@@ -15,6 +15,11 @@ public class Main {
 				for(int m=k+1; m<cardNumber; m++) {
 					if((sum-(card[j]+card[k]+card[m]))<=sum-bestSum && (sum-(card[j]+card[k]+card[m]))>=0 ) {
 						bestSum=card[j]+card[k]+card[m];
+                        if(sum-(card[j]+card[k]+card[m])==0){
+                          System.out.println(bestSum);
+                          System.exit(0);
+                        }
+                        
 					}
 				}
 			}
