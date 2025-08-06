@@ -15,7 +15,10 @@ vector<string> solution(vector<string> record) {
         stringstream ss(record[i]);
         string action, id, name;
         ss >> action >> id >> name;
-        if(action=="Enter"||action=="Change")
+        if(action.compare("Leave")==0) continue;
+        auto isExist = user.insert({id, name});
+
+        if(!isExist.second&& (!user[id].compare(name)==0))
         {
             user.erase(id);
             user.insert({id,name});
@@ -39,6 +42,5 @@ vector<string> solution(vector<string> record) {
             answer.push_back(leave);
         }
     }
-    
     return answer;
 }
